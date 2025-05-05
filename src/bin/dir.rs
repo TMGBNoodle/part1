@@ -1,7 +1,11 @@
-use std::env;
-use std::env::args;
+// use std::env;
+// use std::env::args;
 use std::fs;
 
 fn main() {
-    for arg in std::env::args() {}
+    let paths = fs::read_dir("./").unwrap();
+    println!("Listing files in current directory:");
+    for path in paths {
+        println!("{}", path.unwrap().path().display());
+    }
 }
