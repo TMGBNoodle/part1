@@ -2,7 +2,9 @@ use std::fs::remove_file;
 use std::env;
 
 fn main() {
-    for arg in env::args() {
+    let mut args = env::args();
+    let _my_name = args.next();
+    for arg in args {
         let file_path = arg.as_str();
         let res = remove_file(&file_path);
         match res {
